@@ -11,7 +11,6 @@ router.post("/task", async (req,res)=>{
 
     await taskcreate.save().then((result)=>{
         res.status(200).json({
-            msg:"posted success",
             result:result
         })
     }).catch((err)=>{
@@ -27,8 +26,11 @@ router.get("/task/:category",async(req,res)=>{
     const category=req.params.category;
     Task.find({status:category}).then((result)=>{
         res.status(200).json({
-            msg:"sent success",
             data:result
+        })
+    }).catch((err)=>{
+        res.status(401).json({
+            msg:err
         })
     })
 })
@@ -39,8 +41,11 @@ router.patch("/:id",async (req,res)=>{
     await Task.findByIdAndUpdate(id,req.body)
     .then((result)=>{
         res.status(200).json({
-            msg:"successfully updated",
             result:result,
+        })
+    }).catch((err)=>{
+        res.status(401).json({
+            msg:err
         })
     })
 })
@@ -50,10 +55,14 @@ router.delete("/:id",async(req,res)=>{
     Task.findByIdAndDelete(req.params.id)
     .then((result)=>{
         res.status(200).json({
-            msg:"deleted successfully",
+            msg:"deleted successfully"
         })
     }).catch((err)=>{
-        msg:err
+        res.status(401).json({
+            msg:err
+        })
     })
 })
+
+
 module.exports=router;
