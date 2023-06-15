@@ -1,0 +1,18 @@
+.card{
+    width: 60%;
+    margin:1rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0.2px 0.2px 2px grey;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+.taskTxt{
+    display: flex;
+    justify-content: center;
+}
+.taskPara{
+    margin-left: 1rem;
+}

@@ -1,0 +1,27 @@
+.form{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.form form{
+    width: 50%;
+    background-color: white;
+    z-index: 99;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    padding: 1rem;
+}
+.button{
+
+}
