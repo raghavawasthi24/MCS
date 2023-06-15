@@ -9,13 +9,13 @@ const TaskSchema=new mongoose.Schema({
         type:String,
         required:true,
     },
-    date:{
-        type:String,
-        reuired:true
-    },
     status:{
          type:String,
          default:"",
+    },
+    check:{
+        type:Boolean,
+        default:false,
     }
 
 })
