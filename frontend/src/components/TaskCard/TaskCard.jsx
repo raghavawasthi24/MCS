@@ -32,6 +32,7 @@ const TaskCard = (props) => {
 
     const statusHandler=()=>{
         let changedStatus="",changedCheck="";
+        
         if(props.status==="Pending"){
         changedStatus="Completed";
          changedCheck=true;
@@ -54,7 +55,7 @@ const TaskCard = (props) => {
     <div className='card'>
         <div className='taskTxt'>
            
-         <Checkbox color="success" checked={localStorage.getItem("check")} onChange={statusHandler}/>
+         <Checkbox color="success" checked={props.checker} onChange={statusHandler}/>
          <div className='taskPara'>
                  <p>{props.title}</p>
                  <p style={{color:"grey",fontSize:"0.8rem"}}>{props.desc}</p>
