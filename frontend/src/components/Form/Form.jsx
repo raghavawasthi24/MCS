@@ -33,8 +33,10 @@ const Form = () => {
     <div className='form'>
         <form onSubmit={handleSubmit}>
         <TextField id="standard-basic" label="Title" variant="standard" name="title" sx={{margin:"0.5rem",width:"90%"}} value={formvalues.title} onChange={handleChange}/>
+        
         <TextField id="standard-basic" label="Description" variant="standard" name="description" sx={{margin:"0.5rem",width:"90%"}} value={formvalues.description} onChange={handleChange}/>
         <FormControl sx={{margin:"0.5rem",width:"90%"}}>
+
         <InputLabel id="demo-simple-select-label">Status</InputLabel>
         <Select
           value={formvalues.status}

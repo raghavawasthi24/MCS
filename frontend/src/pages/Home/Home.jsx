@@ -6,21 +6,29 @@ import axios from "axios";
 import TaskCard from '../../components/TaskCard/TaskCard';
 import Form from '../../components/Form/Form';
 
+
+export let checkere="";
 const Home = () => {
   const quesType = ["Pending","Completed"];
-  const [value, setValue] = useState(1);
-  const [selView,setSelView]=useState('Pending');
+  const [value, setValue] = useState(0);
   const [data,setData]=useState([]);
   const [openForm,setOpenForm]=useState(false);
+ 
 
   useEffect(()=>{
      axios.get(`https://mcs-production.up.railway.app/api/task/${quesType[value]}`)
      .then((res)=>{
       console.log(res.data);
       setData(res.data.data)
+
+      if(res.data.data[0].status==="Completed")
+      localStorage.setItem("check","true");
+      else
+      localStorage.setItem("check","false");
      }).catch((err)=>{
       console.log(err);
      })
+     // eslint-disable-next-line
   },[value]);
 
   const handleChange = (event, newValue) => {
@@ -40,7 +48,7 @@ const Home = () => {
       <div className='taskBox'>
          {
           data.map((item,key)=>{
-            return(<TaskCard title={item.title} desc={item.description} status={item.status} key={key}/>)
+            return(<TaskCard title={item.title} desc={item.description} status={item.status} id={item._id} key={key} checker={item.check}/>)
           })
          }
       </div>

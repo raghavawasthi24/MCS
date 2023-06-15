@@ -4,6 +4,10 @@
     flex-direction: column;
     align-items: center;
 }
+.home h2{
+    margin-bottom: 1rem;
+}
 .taskBox{
     width: 95%;
+    margin-top: 1rem;
 }
